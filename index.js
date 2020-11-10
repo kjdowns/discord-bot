@@ -19,7 +19,8 @@ client.on('message', replyMessage);
 
 // Functions
 function replyMessage(msg){
-    if (msg.channel.id === '' && msg.content === "arrr you ready kids?!") {
-        
+    if (msg.channel.id === process.env.TEST_CHANNEL && msg.content.toLowerCase() === "arrr you ready kids?!") {
+        const i = Math.floor(Math.random() * replies.length);
+        msg.reply(replies[i]);
     }
 }
